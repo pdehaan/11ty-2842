@@ -1,0 +1,12 @@
+{% for article in collections.news %}
+  {% comment %}
+  This successfully reads the filePathStem variable
+  {% endcomment %}
+  "{{ article.filePathStem }}.jpg"
+
+  {% comment %}
+  This doesn't read the variable successfully
+  {% endcomment %}
+  {%- assign src = article.filePathStem | append: ".jpg" -%}
+  {% image src, "Argument" %}
+{% endfor %}
